@@ -7,7 +7,7 @@
 # (for e.g. --start triangular3x3.xy.coefficients.h5) to get even more accurate approximation.
 # Alternatively, you can specify more steps. 
 
-states=12
+states=11
 steps=100
 gamma=10
 
