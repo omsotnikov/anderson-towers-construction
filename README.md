@@ -30,7 +30,7 @@ For that purpose the user should provide a set of eigenvectors and eigenvalues, 
 Below we will describe each file in details.
 
 ### Data files
-We prepared two classical Neel orderings on triangular lattice (see [paper](https://arxiv.org/abs/2107.09894)):
+We prepared two classical Neel orderings on triangular lattice (see [paper](https://arxiv.org/abs/2210.03922)):
 
 <p align="center">
   <img src="./figures/triangular3x3.classic_spins.svg" width="350" alttext="Neel out-of-plane ordering">
