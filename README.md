@@ -58,4 +58,4 @@ This script imports OverlapOptimizer class from [overlap_optimizer.py](./overlap
 
 ### Auxiliary scripts
 
-The [reconstruct_classic.py](./reconstruct_classic.py) and [draw_spins.py][./draw_spins.py] scripts are used to measure magnetic moment components in approximate statevector and drawing the result, respectively. In order to print evolution of error function one can use [print_error_function.py](./print_error_function.py) script.
+The [reconstruct_classic.py](./reconstruct_classic.py) and [draw_spins.py](./draw_spins.py) scripts are used to measure magnetic moment components in approximate statevector and drawing the result, respectively. In order to print evolution of error function one can use [print_error_function.py](./print_error_function.py) script.
