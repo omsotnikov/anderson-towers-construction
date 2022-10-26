@@ -13,7 +13,7 @@ gamma=10
 
 echo "Calculate approximation for in-plane Neel state..."
 
-# Calculation for in-plate Neel state
+# Calculation for in-plane Neel state
 python3 ./minimize_overlap.py --root /hamiltonian --gamma ${gamma} --steps ${steps} --states ${states} triangular3x3.xy.classic_spins.h5 triangular3x3.eigenvectors.full.h5
 mv coefficients.h5 triangular3x3.xy.coefficients.h5
 mv statevector_approximation.h5 triangular3x3.xy.approximation.h5
