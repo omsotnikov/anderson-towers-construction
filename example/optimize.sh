@@ -14,28 +14,28 @@ gamma=10
 echo "Calculate approximation for in-plane Neel state..."
 
 # Calculation for in-plane Neel state
-python3 ./minimize_overlap.py --root /hamiltonian --gamma ${gamma} --steps ${steps} --states ${states} triangular3x3.xy.classic_spins.h5 triangular3x3.eigenvectors.full.h5
+python3 ../minimize_overlap.py --root /hamiltonian --gamma ${gamma} --steps ${steps} --states ${states} triangular3x3.xy.classic_spins.h5 triangular3x3.eigenvectors.h5
 mv coefficients.h5 triangular3x3.xy.coefficients.h5
 mv statevector_approximation.h5 triangular3x3.xy.approximation.h5
 
 # Measure <Sx>, <Sy> and <Sz> to reconstruct classical magnetic moments of approximate statevector
-python3 ./reconstruct_classic.py triangular3x3.xy.approximation.h5 triangular3x3.coordinates.h5
+python3 ../reconstruct_classic.py triangular3x3.xy.approximation.h5 triangular3x3.coordinates.h5
 
 # print error function evolution in XY file format
-python3 ./print_error_function.py triangular3x3.xy.coefficients.h5 > triangular3x3.xy.error_function.dat
+python3 ../print_error_function.py triangular3x3.xy.coefficients.h5 > triangular3x3.xy.error_function.dat
 
 echo "Calculate approximation for another Neel ordering..."
 
 # Calculation for another Neel ordering
-python3 ./minimize_overlap.py --root /hamiltonian --gamma ${gamma} --steps ${steps} --states ${states} triangular3x3.classic_spins.h5 triangular3x3.eigenvectors.full.h5
+python3 ../minimize_overlap.py --root /hamiltonian --gamma ${gamma} --steps ${steps} --states ${states} triangular3x3.classic_spins.h5 triangular3x3.eigenvectors.h5
 mv coefficients.h5 triangular3x3.coefficients.h5
 mv statevector_approximation.h5 triangular3x3.approximation.h5
 
 # Measure <Sx>, <Sy> and <Sz> to reconstruct classical magnetic moments of approximate statevector
-python3 ./reconstruct_classic.py triangular3x3.approximation.h5 triangular3x3.coordinates.h5
+python3 ../reconstruct_classic.py triangular3x3.approximation.h5 triangular3x3.coordinates.h5
 
 # print error function evolution in XY file format
-python3 ./print_error_function.py triangular3x3.coefficients.h5 > triangular3x3.error_function.dat
+python3 ../print_error_function.py triangular3x3.coefficients.h5 > triangular3x3.error_function.dat
 
 # draw approximated classical magnetic moments in pdf format 
-python3 ./draw_spins.py --radius 0.498 --edge 0.7 --zoom 0.98 *.reconstructed_spins.h5 --z-limits -1 1 --save pdf --transparent
+python3 ../draw_spins.py --radius 0.498 --edge 0.7 --zoom 0.98 *.reconstructed_spins.h5 --z-limits -1 1 --save pdf --transparent

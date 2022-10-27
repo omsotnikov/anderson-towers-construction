@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 from h5py import File
 from overlap_functions import sx, sy, sz
+from pathlib import Path
 import numpy as np
 
 
@@ -48,8 +49,7 @@ def main():
     ofn.insert(-1, 'reconstructed_spins')
     ofn = '.'.join(ofn)
 
-    if ofn == p.vec:
-        raise RuntimeError('Input and output file names are the same. Exiting.')
+    ofn = Path(ofn).name
 
     with File(ofn, 'w') as f:
         f['spins'] = spins

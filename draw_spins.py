@@ -8,6 +8,7 @@ from matplotlib import cm
 from matplotlib.collections import PatchCollection
 from h5py import File
 from argparse import ArgumentParser
+from pathlib import Path
 import numpy as np
 
 
@@ -167,8 +168,7 @@ def main():
                 ofn.insert(-1, p.prefix)
             ofn = '.'.join(ofn)
 
-            if ofn == fn:
-                raise RuntimeError('File name mismatch.')
+            ofn = Path(ofn).name
             
             plt.savefig(ofn, dpi=p.dpi, format=p.save, transparent=p.transparent)
             plt.close()

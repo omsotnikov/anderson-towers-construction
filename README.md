@@ -14,32 +14,32 @@ git clone git@github.com:omsotnikov/anderson-towers-construction.git
 ```
 
 ## Usage
-The repository contains six python scripts, data files and the shell script bulding Anderson tower of states for classical Neel ordering on 3x3 triangular lattice.
+The repository contains six python scripts, data files and the shell script building Anderson tower of states for classical Néel ordering on 3x3 triangular lattice.
 Each python script takes a number of parameters with command line.
 You can invoke any script with `--help` key to see short description of these parameters. 
 ```sh
 python3 ./minimize_overlap.py --help
 ```
-Alternatively, you can inspect [optimize.sh](./optimize.sh) shell script for example of python scripts usage. 
+Alternatively, you can inspect [optimize.sh](./example/optimize.sh) shell script for example of python scripts usage. 
 Execution of this script will perform minimization of overlap error between approximation and target coherent state.
 We encourage the user to start with this script.
 
 Although this repository contains pure python reference implementation of the approach, which is not the best in terms of performance, one can use these scripts to build towers for arbitrary states.
-For that purpose the user should provide a set of eigenvectors and eigenvalues, which can be easily obtained with [SpinED](https://github.com/twesterhout/spin-ed) exact diagonalization package or any other ED solver and target classical magnetic configuration.
+For that purpose the user should provide a set of eigenvectors and eigenvalues, which can be easily obtained with [SpinED](https://github.com/twesterhout/spin-ed) exact diagonalization package or any other ED solver, and target classical magnetic configuration.
 
 Below we will describe each file in details.
 
 ### Data files
-We prepared two classical Neel orderings on triangular lattice (see [paper](https://arxiv.org/abs/2210.03922)):
+We prepared two classical Néel orderings on triangular lattice (see [paper](https://arxiv.org/abs/2210.03922)):
 
 <p align="center">
   <img src="./figures/triangular3x3.classic_spins.svg" width="350" alttext="Neel out-of-plane ordering">
   <img src="./figures/triangular3x3.xy.classic_spins.svg" width="350" alttext="Neel in-plane ordering">
 </p>
 
-which are written in [triangular3x3.classic_spins.h5](./triangular3x3.classic_spins.h5) and [triangular3x3.xy.classic_spins.h5](./triangular3x3.xy.classic_spins.h5) correspondingly.
+which are written in [triangular3x3.classic_spins.h5](./example/triangular3x3.classic_spins.h5) and [triangular3x3.xy.classic_spins.h5](./example/triangular3x3.xy.classic_spins.h5) correspondingly.
 These files are used by [minimize_overlap.py](./minimize_overlap.py) to calculate coherent quantum state corresponding to these classical orderings. 
-Another file used by this script is [triangular3x3.eigenvectors.full.h5](./triangular3x3.eigenvectors.full.h5) which contains eigenvectors and eigenvalues of corresponding quantum model needed for Anderson tower construction. The [triangular3x3.coordinates.h5](./triangular3x3.coordinates.h5) file contains only coordinates of 3x3 triangular lattice and used for classical ordering reconstruction of approximation.
+Another file used by this script is [triangular3x3.eigenvectors.h5](./example/triangular3x3.eigenvectors.h5) which contains eigenvectors and eigenvalues of corresponding quantum model needed for Anderson tower construction. The [triangular3x3.coordinates.h5](./example/triangular3x3.coordinates.h5) file contains only coordinates of 3x3 triangular lattice and used for classical ordering reconstruction of approximation.
 
 ### Optimization script
 Script [minimize_overlap.py](./minimize_overlap.py) performs approximation of target state with Anderson tower by means of gradient descent and takes the following arguments:
@@ -53,8 +53,8 @@ Script [minimize_overlap.py](./minimize_overlap.py) performs approximation of ta
 - `--tolerance` - precision for floating point comparison;
 - `--root` - root of eigenvalues and eigenvectors datasets in hdf5 file.
 
-The this script outputs two files: statevector_approximation.h5 and coefficients.h5 which contain approximate statevector and coefficients of decomposition, respectively.
-This script imports OverlapOptimizer class from [overlap_optimizer.py](./overlap_optimizer.py) and a number of functions from [overlap_functions.py](./overlap_functions.py), so keep them in the same folder with [minimize_overlap.py](./minimize_overlap.py) or be sure that containing folder is present in PYTHONPATH.
+This script outputs two files: `statevector_approximation.h5` and `coefficients.h5` which contain approximate statevector and coefficients of superposition, respectively.
+This script imports `OverlapOptimizer` class from [overlap_optimizer.py](./overlap_optimizer.py) and a number of functions from [overlap_functions.py](./overlap_functions.py), so keep them in the same folder with [minimize_overlap.py](./minimize_overlap.py) or be sure that folder containing these scripts is present in `PYTHONPATH`.
 
 ### Auxiliary scripts
 
