@@ -1,9 +1,9 @@
 Python reference implementation of Anderson towers construction algorithm proposed in research paper [arXiv:2210.03922](https://arxiv.org/abs/2210.03922).
 
 ## Prerequisites
-We use [Qiskit](https://qiskit.org) framework to to build coherent state from classical magnetic moments. We also utilize [h5py](https://docs.h5py.org/en/stable/) for HDF5 files manipulation and [Numpy](https://numpy.org). It is possible to install the dependencies with `pip` python package manager:
+We use [Qiskit](https://qiskit.org) framework to to build coherent state from classical magnetic moments. We also utilize [h5py](https://docs.h5py.org/en/stable/) for HDF5 files manipulation, [Numpy](https://numpy.org) and [Matplotlib](https://matplotlib.org). It is possible to install the dependencies with `pip` python package manager:
 ```sh
-pip install qiskit numpy h5py
+pip install qiskit numpy h5py matplotlib
 ```
 
 ## Installation
