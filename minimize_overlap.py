@@ -86,7 +86,6 @@ def main():
         f['/parameters/delta'] = p.delta
         f['/parameters/gamma'] = p.gamma
         f['/parameters/steps'] = p.steps
-        f['/parameters/eigenvectors_file'] = p.eigenvectors
         f['/parameters/spins'] = spins
         f['/parameters/coordinates'] = coordinates
 
